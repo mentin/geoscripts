@@ -8,7 +8,8 @@ const LineInputStream = require('line-input-stream'),
         .argv;
 
 if (!argv.geofield) {
-  console.log('Need to speficy BigQuery geography field.')
+  console.log('Need to speficy BigQuery geography field: --geofield=<field-name>.')
+  process.exit(1);
 }
 
 let geofield = argv.geofield;
