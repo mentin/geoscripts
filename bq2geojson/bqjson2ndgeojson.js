@@ -1,5 +1,6 @@
 #! /usr/bin/env node
-/* jshint esnext:true */
+// Copyright 2019 Google LLC.
+// SPDX-License-Identifier: Apache-2.0
 
 const LineInputStream = require('line-input-stream'),
     fs = require('fs'),
