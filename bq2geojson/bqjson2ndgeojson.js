@@ -4,7 +4,8 @@
 const LineInputStream = require('line-input-stream'),
     fs = require('fs'),
     argv = require('yargs')
-        .usage('bqjson2ndgeojson --geofield=geography_field [filename.json]\n\nConverts newline-delimited BigQuery JSON file to newline-delimited GeoJSON.')
+        .usage('bqjson2ndgeojson --geofield=geography_field [--rfc=7946] [filename.json]\n\n' +
+               'Converts newline-delimited BigQuery JSON file to newline-delimited GeoJSON or GeoJSON.')
         .argv;
 
 if (!argv.geofield) {
@@ -12,6 +13,7 @@ if (!argv.geofield) {
   process.exit(1);
 }
 
+let nond = argv.rfc == '7946';
 let geofield = argv.geofield;
 let filename = argv._[0];
 let source;
@@ -25,6 +27,7 @@ if (filename) {
     source = process.stdin;
 }
 
+let prev;
 const stream = LineInputStream(source)
     .setEncoding("utf8")
     .on("error", console.error)
@@ -32,10 +35,22 @@ const stream = LineInputStream(source)
         let obj = JSON.parse(line);
         let geom = obj[geofield];
         delete obj[geofield];
-        let geojson = {"type": "Feature", "properties": obj};
-        if (geom) { geojson.geography = JSON.parse(geom); }
-        console.log(JSON.stringify(geojson));
-    }).on("end", function() {
+        if (geom) {
+            geom = JSON.parse(geom);
+        } else { 
+            geom = {"type":"GeometryCollection", "geometries": []};
+        }
+        let geojson = {"type": "Feature", "properties": obj, "geometry": geom};
 
+        if (nond && prev) { console.log('     ,'); }
+        prev = true;
+        console.log((nond ? '    ' : ''), JSON.stringify(geojson));
+    }).on("end", function() {
+        if (nond) {
+            console.log('  ]\n}');
+        }
     });
 
+if (nond && stream.readable) {
+    console.log('{\n  "type": "FeatureCollection",\n  "features": [');
+}
