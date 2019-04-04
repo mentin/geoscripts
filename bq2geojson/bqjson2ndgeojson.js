@@ -34,18 +34,13 @@ const stream = LineInputStream(source)
     .on("error", console.error)
     .on("line", function(line) {
         let obj = JSON.parse(line);
-        let geom = obj[geofield];
+        let geom = obj[geofield] ? JSON.parse(obj[geofield]) : null;
         delete obj[geofield];
-        if (geom) {
-            geom = JSON.parse(geom);
-        } else { 
-            geom = {"type":"GeometryCollection", "geometries": []};
-        }
         let geojson = {"type": "Feature", "properties": obj, "geometry": geom};
 
         if (nond && prev) { console.log('     ,'); }
-        prev = true;
         console.log((nond ? '    ' : ''), JSON.stringify(geojson));
+        prev = true;
     }).on("end", function() {
         if (nond) {
             console.log('  ]\n}');
