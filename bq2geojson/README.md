@@ -1,10 +1,13 @@
 Usage:
 
 1. Extract BigQuery data using new-line-delimited JSON, geography fields as GeoJSON:
+
    `SELECT * EXCEPT (geography_field), ST_AsGeoJson(geography_field) AS geography_field FROM ...`
 2. Convert to new-line-delimited GeoJSON using
-   `bqjson2ndgeojson --geofield=geography_field [filename.json]`
+
+   `bqjson2ndgeojson --geofield=geography_field [filename.json]`   
 3. Convert to regular GeoJSON using
+
    `bqjson2ndgeojson --geofield=geography_field --rfc=7946 [filename.json]`
 
 Where
