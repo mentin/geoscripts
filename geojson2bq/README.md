@@ -17,12 +17,12 @@ Where
 
 4. Create schema in BigQuery that matches the produced JSON file,
    use GEOGRAPHY type for field specified as 'geofield'.
-   (E.g. for sample.geojson schema could be
+   E.g. for sample.geojson schema could be
     ```
     prop0 STRING  NULLABLE
     prop1 NUMERIC NULLABLE
     geog  GEOGRAPHY NULLABLE
-    ```)
+    ```
    Upload the file to BigQuery.
 
 E.g.
