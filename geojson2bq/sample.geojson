@@ -21,7 +21,7 @@
          ]
      },
      "properties": {
-      "prop0": "value0",
+         "prop0": "value0",
          "prop1": 0.0
      }
   }, {
@@ -40,9 +40,7 @@
      },
      "properties": {
          "prop0": "value0",
-         "prop1": {
-             "this": "that"
-         }
+         "prop1": 1.2
      }
   }, {
     "type": "Feature",
