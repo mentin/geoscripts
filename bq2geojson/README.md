@@ -7,7 +7,8 @@ Usage:
    `SELECT * EXCEPT (geography_field), ST_AsGeoJson(geography_field) AS geography_field FROM ...`
 3. Convert to new-line-delimited GeoJSON using
 
-   `bqjson2ndgeojson --geofield=geography_field [filename.json]`   
+   `node bqjson2ndgeojson.js --geofield=geography_field [filename.json]`
+
 4. Convert to regular GeoJSON using
 
    `node bqjson2ndgeojson.js --geofield=geography_field --rfc=7946 [filename.json]`
