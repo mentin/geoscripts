@@ -30,7 +30,7 @@ Convert geojson file:
 
 Convert ndgeojson file:
 
-`node ndgeojson2bqjson.js --geofield=geog sample.ndgeojson >/.bqjson.json`
+`node ndgeojson2bqjson.js --geofield=geog sample.ndgeojson >./bqjson.json`
 
 Schema for the produced files:
 ```
