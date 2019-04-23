@@ -3,6 +3,7 @@ Usage:
 1. Install node.js.
 
 2. Add packages:
+
    `npm install fs JSONStream yargs`
 
 3. Convert GeoJson file to BigQuery new-line-delimited JSON using
