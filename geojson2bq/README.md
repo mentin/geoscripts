@@ -4,11 +4,15 @@ Usage:
 
 2. Add packages:
 
-   `npm install fs JSONStream yargs`
+   `npm install fs JSONStream line-input-stream yargs`
 
-3. Convert GeoJson file to BigQuery new-line-delimited JSON using
+3. To convert GeoJson file to BigQuery new-line-delimited JSON:
 
    `node geojson2bqjson.js [--geofield=geography_field] [filename.json]`
+
+4. To convert new-line-delimited GeoJSON to BigQuery new-line-delimited JSON:
+
+   `node ndgeojson2bqjson.js [--geofield=geography_field] [filename.json]`
 
 Where
 * `geography_field` is optional name for geography field (defaults to `geography`)
@@ -16,13 +20,22 @@ Where
 
 4. Create schema in BigQuery that matches the produced JSON file,
    use GEOGRAPHY type for field specified as 'geofield'.
-   E.g. for sample.geojson schema could be
-    ```
-    prop0 STRING  NULLABLE
-    prop1 NUMERIC NULLABLE
-    geog  GEOGRAPHY NULLABLE
-    ```
-   Upload the file to BigQuery.
+   Upload the file to created BigQuery table.
 
-E.g.
+Examples:
+
+Convert geojson file:
+
 `node geojson2bqjson.js --geofield=geog sample.geojson`
+
+Convert ndgeojson file:
+
+`node ndgeojson2bqjson.js --geofield=geog sample.ndgeojson`
+
+Schema for the produced files:
+```
+prop0 STRING  NULLABLE
+prop1 NUMERIC NULLABLE
+geog  GEOGRAPHY NULLABLE
+```
+
