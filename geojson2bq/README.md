@@ -26,11 +26,11 @@ Examples:
 
 Convert geojson file:
 
-`node geojson2bqjson.js --geofield=geog sample.geojson`
+`node geojson2bqjson.js --geofield=geog sample.geojson >./bqjson.json`
 
 Convert ndgeojson file:
 
-`node ndgeojson2bqjson.js --geofield=geog sample.ndgeojson`
+`node ndgeojson2bqjson.js --geofield=geog sample.ndgeojson >/.bqjson.json`
 
 Schema for the produced files:
 ```
@@ -39,3 +39,6 @@ prop1 NUMERIC NULLABLE
 geog  GEOGRAPHY NULLABLE
 ```
 
+Upload command:
+
+`bq load --source_format=NEWLINE_DELIMITED_JSON dataset.table ./bqjson.json
