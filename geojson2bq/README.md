@@ -41,4 +41,4 @@ geog  GEOGRAPHY NULLABLE
 
 Upload command:
 
-`bq load --source_format=NEWLINE_DELIMITED_JSON dataset.table ./bqjson.json
+`bq load --source_format=NEWLINE_DELIMITED_JSON dataset.table ./bqjson.json`
