@@ -1,3 +1,9 @@
+This script converts GeoJson or new-line-delimited GeoJson files
+to BigQuery new-line-delimited Json format.
+
+Author: Michael Entin.
+Origin: https://github.com/mentin/geoscripts
+
 Usage:
 
 1. Install node.js.
