@@ -1,4 +1,10 @@
-Usage:
+This script converts GeoJson or new-line-delimited GeoJson files
+to BigQuery new-line-delimited Json format.
+
+Author: Michael Entin.
+Origin: https://github.com/mentin/geoscripts
+
+## Usage:
 
 1. Install node.js.
 
@@ -18,11 +24,15 @@ Where
 * `geography_field` is optional name for geography field (defaults to `geography`)
 * `[filename.json]` is optional input file, if not provided the stdin will be processed.
 
-4. Create schema in BigQuery that matches the produced JSON file,
-   use GEOGRAPHY type for field specified as 'geofield'.
-   Upload the file to created BigQuery table.
+5. Upload to BigQuery.
 
-Examples:
+* Either create schema in BigQuery that matches the produced JSON file; using
+  `GEOGRAPHY` type for field specified as 'geofield'.
+* Or upload to a temporary table using auto-detection, then convert to actual
+  table using `ST_GeogFromGeoJson` function (auto-detection does not detect
+  Geography type yet, the column will be uploaded as `STRING`).
+
+## Examples:
 
 Convert geojson file:
 
