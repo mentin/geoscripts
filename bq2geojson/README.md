@@ -2,6 +2,7 @@ This script converts BigQuery new-line-delimited Json files
 to GeoJson or new-line-delimited GeoJson format.
 
 Author: Michael Entin.
+
 Origin: https://github.com/mentin/geoscripts
 
 ## Usage:
@@ -24,9 +25,9 @@ Origin: https://github.com/mentin/geoscripts
 
    `node bqjson2ndgeojson.js --geofield=geography_field --rfc=7946 [filename.json]`
 
-Where
-* `geography_field` is the name of top-level (not nested) geography field in BigQuery result.
-* `[filename.json]` is optional input file, if not provided the stdin will be processed.
+   Where
+   * `geography_field` is the name of top-level (not nested) geography field in BigQuery result.
+   * `[filename.json]` is optional input file, if not provided the stdin will be processed.
 
 Output is written to standard output.
 
