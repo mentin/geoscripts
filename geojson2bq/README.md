@@ -11,15 +11,15 @@ Origin: https://github.com/mentin/geoscripts
 
 2. Add packages:
 
-   `npm install fs JSONStream line-input-stream yargs`
+   `npm install`
 
 3. To convert GeoJson file to BigQuery new-line-delimited JSON:
 
-   `node geojson2bqjson.js [--geofield=geography_field] [filename.json]`
+   `npm run geojson2bqjson [--geofield=geography_field] [filename.json]`
 
 4. To convert new-line-delimited GeoJSON to BigQuery new-line-delimited JSON:
 
-   `node ndgeojson2bqjson.js [--geofield=geography_field] [filename.json]`
+   `npm run ndgeojson2bqjson [--geofield=geography_field] [filename.json]`
 
    Where
    * `geography_field` is optional name for geography field (defaults to `geography`)
@@ -37,11 +37,11 @@ Origin: https://github.com/mentin/geoscripts
 
 Convert geojson file:
 
-`node geojson2bqjson.js --geofield=geog sample.geojson >./bqjson.json`
+`npm run geojson2bqjson --geofield=geog sample.geojson >./bqjson.json`
 
 Convert ndgeojson file:
 
-`node ndgeojson2bqjson.js --geofield=geog sample.ndgeojson >./bqjson.json`
+`npm ndgeojson2bqjson --geofield=geog sample.ndgeojson >./bqjson.json`
 
 Schema for the produced files:
 ```

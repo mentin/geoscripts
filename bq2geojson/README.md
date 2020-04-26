@@ -11,7 +11,7 @@ Origin: https://github.com/mentin/geoscripts
 
 2. Add packages used by this script:
 
-   `npm install fs line-input-stream yargs`
+   `npm install`
 
 3. Extract BigQuery data to new-line-delimited JSON, format geography fields as GeoJSON:
 
@@ -19,11 +19,11 @@ Origin: https://github.com/mentin/geoscripts
 
 4. Convert to new-line-delimited GeoJSON using
 
-   `node bqjson2ndgeojson.js --geofield=geography_field [filename.json]`
+   `npm run bqjson2ndgeojson --geofield=geography_field [filename.json]`
 
 5. Convert to regular GeoJSON using
 
-   `node bqjson2ndgeojson.js --geofield=geography_field --rfc=7946 [filename.json]`
+   `npm run bqjson2ndgeojson --geofield=geography_field --rfc=7946 [filename.json]`
 
    Where
    * `geography_field` is the name of top-level (not nested) geography field in BigQuery result.
@@ -33,5 +33,5 @@ Output is written to standard output.
 
 ## Example
 
-`node bqjson2ndgeojson.js --geofield=location sample.bqjson >out.ndgeojson`
+`npm run bqjson2ndgeojson --geofield=location sample.bqjson >out.ndgeojson`
 

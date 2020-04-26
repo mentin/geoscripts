@@ -1,0 +1,31 @@
+{
+  "name": "geoscripts",
+  "version": "1.0.0",
+  "description": "BigQuery geography scripts",
+  "scripts": {
+    "geojson2bq": "node geojson2bq/geojson2bqjson.js",
+    "ndgeojson2bq": "node geojson2bq/ndgeojson2bqjson.js",
+    "bq2geojson": "node bqjson2ndgeojson.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mentin/geoscripts.git"
+  },
+  "keywords": [
+    "BigQuery",
+    "BQ",
+    "geojson"
+  ],
+  "author": "Michael Entin",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/mentin/geoscripts/issues"
+  },
+  "homepage": "https://github.com/mentin/geoscripts#readme",
+  "dependencies": {
+    "JSONStream": "^1.3.5",
+    "fs": "0.0.1-security",
+    "line-input-stream": "^1.0.1",
+    "yargs": "^15.3.1"
+  }
+}
