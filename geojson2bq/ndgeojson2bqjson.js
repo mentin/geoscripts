@@ -32,7 +32,7 @@ const stream = LineInputStream(source)
             process.exit(2);
         }
         let obj = data.properties ? data.properties : {};
-        obj[geofield] = JSON.stringify(data.geometry);
+        obj[geofield] = data.geometry ? JSON.stringify(data.geometry) : null;
         console.log(JSON.stringify(obj));
     });
 

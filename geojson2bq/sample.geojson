@@ -48,5 +48,12 @@
         "type": "Point",
         "coordinates": [101, 1]
      }
+  }, {
+    "type": "Feature",
+    "geometry": null,
+    "properties": {
+         "prop0": "value10",
+         "prop1": 11
+    }
   }]
 }
