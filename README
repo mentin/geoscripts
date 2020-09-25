@@ -1,0 +1,9 @@
+## BigQuery geography scripts
+
+Node.js scripts to transform GeoJSON files into BQ compatible JSON format and vice versa.
+
+[Loading BigQuery GIS data](https://cloud.google.com/bigquery/docs/gis-data#loading_data)
+
+> When you load GeoJSON geometry objects into a GEOGRAPHY column, they should be formatted as text strings, not as JSON objects. This is true even if the object is being loaded from a newline-delimited JSON file.
+
+Check README files into each folder to get started.
